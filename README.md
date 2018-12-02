@@ -27,7 +27,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_name|string|null: false|
+|name|string|null: false|
 |message|references|null: false, foreign_key: true|
 |group|references|null: false, foreign_key: true|
 
