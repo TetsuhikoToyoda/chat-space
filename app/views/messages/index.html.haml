@@ -1,0 +1,62 @@
+.chat-side
+  .chat-side__user
+    .chat-side__user-content
+      .chat-side__user-name
+        Tetsuhiko
+      %a.chat-side__user--new-group{href: "#"}
+        %i.fa.fa-pencil-square-o
+      %a.chat-side__user--edit-user{href: "#"}
+        %i.fa.fa-cog
+  .chat-side__groups
+    .chat-side__groups-list
+      %a{href: "#"}
+        .chat-side__group
+          .chat-side__group-name
+            井澤ゼミ
+          .chat-side__group-message
+            12/8(土)はゼミ大！
+      %a{href: "#"}
+        .chat-side__group
+          .chat-side__group-name
+            ミニオン
+          .chat-side__group-message
+            わーい！
+
+.chat-main
+  .chat-main__header
+    .chat-main__header--group
+      .chat-main__header--group-name
+        井澤ゼミ
+      %a.chat-main__header--group-edit-btn{href: "#"}edit
+    .chat-main__header--members
+      Members:
+      %i
+        tetsu
+  .chat-main__body
+    .chat-main__body--messages-list
+      .chat-main__message
+        .chat-main__message--name
+          tetsu
+        .chat-main__message--time
+          2018/11/30 12:36:41
+        .chat-main__message--body
+          こんにちは！
+      .chat-main__message
+        .chat-main__message--name
+          tetsu
+        .chat-main__message--time
+          2018/11/30 12:38:41
+        .chat-main__message--body
+          こんばんは！
+  .chat-main__footer
+    %form.chat-main__footer-form{id: "new_message", action: "#", enctype:"multipart/form-data", method: "post"}
+      %input{name: "utf8", type: "hidden", value: "/bDk/zTeCv3TzQ0z1pfX18oDylo/jBSN+vKmTVUT7HWViSubTq85nz7wXi71uHbfS4ZnCTTEu7L8EWjpchILMw=="}
+      .chat-main__footer-body
+        .field_with_errors
+          %input.message{placeholder: "type a message", type: "text"}
+        %label.chat-file{for: "message_image"}
+          %input.image{type: "file", name: "message[image]", id: "message_image"}
+          %i.fa.fa-image
+      %input.submit{type:"submit", name:"commit", value:"Send"}
+
+
