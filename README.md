@@ -33,7 +33,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :messages
-- has_many :members
+- has_many :group_users
 
 
 ## messagesテーブル
@@ -60,10 +60,10 @@ Things you may want to cover:
 
 ### Association
 - has_many :messages
-- has_many :members
+- has_many :group_users
 
 
-## membersテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
