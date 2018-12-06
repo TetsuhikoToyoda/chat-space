@@ -1,26 +1,4 @@
-.chat-side
-  .chat-side__user
-    .chat-side__user-content
-      .chat-side__user-name
-        Tetsuhiko
-      %a.chat-side__user--new-group{href: "#"}
-        %i.fa.fa-pencil-square-o
-      %a.chat-side__user--edit-user{href: "#"}
-        %i.fa.fa-cog
-  .chat-side__groups
-    .chat-side__groups-list
-      %a{href: "#"}
-        .chat-side__group
-          .chat-side__group-name
-            井澤ゼミ
-          .chat-side__group-message
-            12/8(土)はゼミ大！
-      %a{href: "#"}
-        .chat-side__group
-          .chat-side__group-name
-            ミニオン
-          .chat-side__group-message
-            わーい！
+= render "devise/shared/side_bar"
 
 .chat-main
   .chat-main__header
