@@ -4,37 +4,23 @@
   .chat-main__header
     .chat-main__header--group
       .chat-main__header--group-name
-        井澤ゼミ
-      %a.chat-main__header--group-edit-btn{href: "#"}edit
+        = @group.name
+      = link_to "edit", edit_group_path(params[:group_id]), class: 'chat-main__header--group-edit-btn'
     .chat-main__header--members
       Members:
       %i
-        tetsu
+        - @group_users.each do |group_user|
+          = group_user.name
   .chat-main__body
-    .chat-main__body--messages-list
-      .chat-main__message
-        .chat-main__message--name
-          tetsu
-        .chat-main__message--time
-          2018/11/30 12:36:41
-        .chat-main__message--body
-          こんにちは！
-      .chat-main__message
-        .chat-main__message--name
-          tetsu
-        .chat-main__message--time
-          2018/11/30 12:38:41
-        .chat-main__message--body
-          こんばんは！
+    = render @messages
   .chat-main__footer
-    %form.chat-main__footer-form{id: "new_message", action: "#", enctype:"multipart/form-data", method: "post"}
-      %input{name: "utf8", type: "hidden", value: "/bDk/zTeCv3TzQ0z1pfX18oDylo/jBSN+vKmTVUT7HWViSubTq85nz7wXi71uHbfS4ZnCTTEu7L8EWjpchILMw=="}
-      .chat-main__footer-body
-        .field_with_errors
-          %input.message{placeholder: "type a message", type: "text"}
-        %label.chat-file{for: "message_image"}
-          %input.image{type: "file", name: "message[image]", id: "message_image"}
-          %i.fa.fa-image
-      %input.submit{type:"submit", name:"commit", value:"Send"}
-
+    .form.chat-main__footer-form
+      = form_for [@group, @message] do |f|
+        .chat-main__footer-body
+          = f.text_field :content, class: 'message', placeholder: 'type a message'
+          .chat-file
+            = f.label :image do
+              = fa_icon 'picture-o',class: 'fa2'
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'submit'
 
