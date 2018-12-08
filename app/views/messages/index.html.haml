@@ -8,9 +8,9 @@
       = link_to "edit", edit_group_path(params[:group_id]), class: 'chat-main__header--group-edit-btn'
     .chat-main__header--members
       Members:
-      %i
-        - @group_users.each do |group_user|
-          = group_user.name
+      / %i
+      /   - @group_users.each do |group_user|
+      /     = group_user.name
   .chat-main__body
     = render @messages
   .chat-main__footer
@@ -23,4 +23,6 @@
               = fa_icon 'picture-o',class: 'fa2'
               = f.file_field :image, class: 'hidden'
           = f.submit 'Send', class: 'submit'
+
+
 
