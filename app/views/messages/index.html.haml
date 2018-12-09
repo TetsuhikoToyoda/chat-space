@@ -15,7 +15,7 @@
     = render @messages
   .chat-main__footer
     .form.chat-main__footer-form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {id: 'new-message'} do |f|
         .chat-main__footer-body
           = f.text_field :content, class: 'message', placeholder: 'type a message'
           .chat-file
