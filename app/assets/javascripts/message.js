@@ -36,5 +36,8 @@ $(function(){
       $('.message').val('')
       $('#message_image').val('')
     })
+    .fail(function(){
+      alert('error');
+    })
   })
 });
