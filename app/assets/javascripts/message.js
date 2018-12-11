@@ -1,4 +1,5 @@
 $(function(){
+
   function buildHTML(message){
     var html = `<div class="chat-main__message">
                   <div class="chat-main__message--name">

@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
 
+  before_action :set_group, only: [:edit, :update]
+
   def index
   end
 
@@ -18,7 +20,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(params[:id])
   end
 
   def update
@@ -30,9 +31,21 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20).where.not(id: current_user.id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def group_params
     params.require(:group).permit(:name, { :user_ids => [] })
+  end
+
+  def set_group
+    @group = Group.find(params[:id])
   end
 end
 
