@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function() {
+$(function(){
+
   function buildHTML(message){
     var html = `<div class="chat-main__message">
                   <div class="chat-main__message--name">
