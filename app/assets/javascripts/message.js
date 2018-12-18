@@ -47,20 +47,20 @@ $(document).on('turbolinks:load', function() {
   })
   var interval = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var id = $('.chat-main__message:last').data('message-id');
       $.ajax({
         url: location.href,
-        dataType: 'json'
+        data: {
+          lastId: id
+        }
       })
       .done(function(json) {
-        var id = $('.chat-main__message:last').data('messageId');
         var insertHTML = '';
-        json.messages.forEach(function(message) {
-          if (message.id > id ) {
-            insertHTML += buildHTML(message);
+          if (json.id > id ) {
+            insertHTML += buildHTML(json);
             $('.chat-main__body').animate({scrollTop: $('.chat-main__body')[0].scrollHeight}, 'fast')
+            $('.chat-main__messages-list').prepend(insertHTML);
           }
-        });
-        $('.chat-main__message:last').prepend(insertHTML);
       })
       .fail(function(json) {
         alert('自動更新に失敗しました');
